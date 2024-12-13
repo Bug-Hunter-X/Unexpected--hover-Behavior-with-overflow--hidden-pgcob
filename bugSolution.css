@@ -1,0 +1,51 @@
+Several solutions can address this CSS issue. Here are two common approaches implemented in CSS:
+
+**Solution 1: Adjusting Parent Container Size**
+
+One approach involves ensuring the parent container is large enough to accommodate the element's expanded size during the hover state. This prevents the content from being clipped by `overflow: hidden`. 
+
+```css
+.container {
+  width: 220px; /* Increased width */
+  height: 110px; /* Increased height */
+  overflow: hidden;
+}
+
+.inner {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  transition: transform 0.3s ease;
+}
+
+.container:hover .inner {
+  transform: scale(1.1);
+}
+```
+
+**Solution 2: Using Transforms on a Wrapper**
+
+Another approach is to wrap the inner element within a new element and apply the transform to the wrapper instead of the inner element. This keeps the inner element's original dimensions while changing the wrapper's size.
+
+```css
+.container {
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.wrapper {
+  overflow: visible; /*Important!*/
+}
+
+.inner {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  transition: transform 0.3s ease;
+}
+
+.container:hover .wrapper {
+  transform: scale(1.1);
+}
+```
