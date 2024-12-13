@@ -1,0 +1,20 @@
+The following CSS code snippet demonstrates an issue where the expected behavior of the `:hover` pseudo-class on an element within a container with `overflow: hidden;` is not working as intended.  The hover effect is unexpectedly cut off or not fully visible.
+
+```css
+.container {
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.inner {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  transition: transform 0.3s ease;
+}
+
+.container:hover .inner {
+  transform: scale(1.1);
+}
+```
